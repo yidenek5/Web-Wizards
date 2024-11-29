@@ -30,9 +30,9 @@ if (cin.fail() || weight <= 0) {
                 if(counter == 3){
                    return 1; // Exit the program
                 }
-                else{
+                
                     
-                }
+                
   
                  goto trial1;
 }
