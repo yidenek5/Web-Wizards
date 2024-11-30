@@ -23,7 +23,8 @@ float weight, height, bmi;
                       }
 
                 if(counter == 3){
-                   return 1; // Exit the program
+                  cout <<"Too many invalid attempt\n";
+                  break;
                 }
                  goto trial1;
 }
@@ -40,7 +41,8 @@ float weight, height, bmi;
                 cout    << " chances left! Please enter a valid height.\n";
                 }
                 if(counter1 == 3){
-                   return 1;
+                   cout <<"Too many invalid attempt\n";
+                  break;
                 }
          goto trial2;
 }
