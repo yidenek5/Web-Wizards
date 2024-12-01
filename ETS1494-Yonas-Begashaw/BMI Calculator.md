@@ -14,7 +14,7 @@
 9. Read response.
 10. If response is Y, go to step 2.
 11. If response is N, got step 13.
-12. If invalid character typed go to step 13.
+12. If invalid character typed go to step 8.
 13. End.
 
 ### Flowchart
@@ -38,5 +38,7 @@ L --> M{Is response Y?}
 M --Yes--> B
 M --No--> N{Is response N?}
 N --Yes--> O([ End ])
+N --NO--> P[/ Print "Invalid input, try again"/]
+P --> K
 
  
