@@ -65,13 +65,16 @@
 4.declare and initialise a variable to assign both of input(base , exponent)
 - float temp1 = x;
 - float temp2 = y;
+- int i ;
 
 5.check the value of y
 - if y < 0, multiply temp2 by -1 and store it inside y --> y = -1*temp2;
-- then multiply base(x) by temp1 until y <= 0 and store it inside x ----> x *= temp1;
+- then multiply base(x) by temp1 until y > i  and store it inside x ----> x *= temp1;
+- increase the value of i by 1 each step ---> i++;
 - after the above task complete (y<0),then store the reciprocal of base(x) inside base(x)
 - but if y > 0,
-- multiply base(x) by temp1 until exponent < 0;
+- multiply base(x) by temp1 until exponent > i ;
+- increase the value of i by 1 each step ---> i++;
 - and then store the value inside base again
 
 6.process the result and display the result
