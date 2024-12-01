@@ -61,55 +61,69 @@ work for multiple person before terminated.
 
 3.Design the program
 =
-3.1. Variable declaration and initialisation
+1.Variable declaration and initialisation
 -
--- float height;
+-- **float height;**
 
--- int weight ;
+-- **int weight ;**
 
--- int user_choice = 'y';
+-- **int user_choice = 'y';**
 
--- int attempts = 3;
+-- **int attempts = 3;**
 
-3.2.read input datas from user:
+2.read input datas from user:
 -
--- cout<<"Enter the weight of a person";
+-- **cout<<"Enter the weight of a person";**
 
--- cin>>weight
+-- **cin>>weight;**
 
---cout<<"Enter the height of a person";
+--**cout<<"Enter the height of a person";**
 
---cin>>height;
+--**cin>>height;**
 
-3.3 check the user inputs negative number:
+3.check the user inputs negative number:
 -
--- if so , give chance of attempts = 3 , after finish his/her attempts terminate the program
+-- **if so , give chance of attempts = 3 , after finish his/her attempts terminate the program**
 
--- else go forward
+-- **else go forward**
 
-3.4 check the user input invalid input like character 
+4.check the user input invalid input like character 
 -
--- if so , give the user to try another chance until he/she finish his/her attempts
+-->**if so , give the user to try another chance until he/she finish his/her attempts**
 
--- and write prompt message : cout<<"you have"<<attempts<<"chances,so please enter valid input";
+-->**and write prompt message : cout<<"you have"<<attempts<<"chances,so please enter valid input";**
 
--- else go forward 
+--> **else go forward**
 
---3.5 perform an operation
+5.perform an operation
 -
--- float body_mass_index = weight/(height*height)
+--> **float body_mass_index = weight/(height*height)**
 
-3.6. read the prompt message and print the result (body_mass_index)
+6.read the prompt message and print the result (body_mass_index)
 -
--- cout<<"The body mass index of a person is: "<<body_mass_index<<endl;
+--> **cout<<"The body mass index of a person is: "<<body_mass_index<<endl;**
 
-3.7 read user's choices(input) if he/she want to continue or not
+7.check the user's body mass index:
 -
--- cout<<"Do you want to continue calculating for other person.press (y/n): ";
+**7.1. if user's BMI < 18.5,**
+  
+**-------> cout<<"You are underweight.";**
 
--- cin>>user_choice
+**7.2. if user's BMI > 18.5 && < 30.5;**
 
--- if user_choice == 'y',goto 3.2 
+**--------> cout<<"You are Normal weight.";**
 
--- else stop the program
+**7.3. if user's BMI > 30.5,**
+
+**----> cout<<"you are obese";
+
+8.read user's choices(input) if he/she want to continue or not
+-
+--> **cout<<"Do you want to continue calculating for other person.press (y/n): ";**
+
+-->**cin>>user_choice;**
+
+--> **if user_choice == 'y',goto 3.2**
+
+--> **else stop the program**
 
