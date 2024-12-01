@@ -49,67 +49,67 @@ without refueling.**
 >=
 >**1.Variable declaration and initialisation**
 >-
->----->**int gallon_of_fuel;**
+>----->int gallon_of_fuel;
 >
->----->**float miles_per_gallon;**
+>----->float miles_per_gallon;
 >
->----->**int attempts = 3;**
+>----->int attempts = 3;
 >
->-----> **float distance ;**
+>-----> float distance ;
 >
->-----> **char user_choice;**
+>-----> char user_choice;
 >
 >2.Read each inputs from user 
 >-
->**line64:**
+>line64:
 >
->----->**cout<<"Enter the amount of gallon of fuel an Automobile can intake";**
+>----->cout<<"Enter the amount of gallon of fuel an Automobile can intake";
 >
->----->**cin>>gallon_of_fuel;**
+>----->cin>>gallon_of_fuel;
 >
->**line70:**
+>line70:
 >
->----->**cout<<"Enter the mile an Automobile can be driven within a gallon of fuel";**
+>----->cout<<"Enter the mile an Automobile can be driven within a gallon of fuel";
 >
->----->**cin>>miles_per_gallon;**
+>----->cin>>miles_per_gallon;
 >
->**2.1. check the user input (gallon_of_fuel)**
+>2.1. check the user input (gallon_of_fuel)
 >
->**1. if gallon_of_fuel < 0 or other invalid input**
+>1. if gallon_of_fuel < 0 or other invalid input
 >
->------>**attempts--;**
+>------>reduce the attempts by 1
 >
->------>**cout<<"Invalid input for gallon of fuel,you have "<<attempts<<" chance please  enter positive number";**
+>------>cout<<"Invalid input for gallon of fuel,you have "<<attempts<<" chance please  enter positive number";
 >
->------>**gotoline64;**
+>------>gotoline64;
 >
 >1.1 If attempts < 0 ,
 >
->------>**cout<<"you have finished your attempts";**
+>------>cout<<"you have finished your attempts";
 >
->------>**then terminate the program**
+>------>then terminate the program
 >
->**2 If miles_per_gallon < 0 or other invalid input**
+>2. If miles_per_gallon < 0 or other invalid input
 >
->------->**attempts--;**
+>------->reduce the attempts by 1
 >
->------>**cout<<"Invalid input for miles,you have "<<attempts<<" chance please  enter positive number";**
+>------>cout<<"Invalid input for miles,you have "<<attempts<<" chance please  enter positive number";
 >
->------>**gotoline70**
+>------>gotoline70;
 >
 >2.1 If attempts < 0 ,
 >
->------>**cout<<"you have finished your attempts";**
+>------>cout<<"you have finished your attempts";
 >
->------>**then terminate the program**
+>------>then terminate the program
 >
 >3.Perform an operation
 >-
->----->**float total_mile = gallon_of_fuel*mile_per_gallon;**
+>----->float total_mile = gallon_of_fuel*mile_per_gallon;
 >
 >4.print the output promt message and process the the total mile 
 >-
->---->**cout<<"The Automobile can be driven for "<<total_mile<<" mile without refueling";
+>---->cout<<"The Automobile can be driven for "<<total_mile<<" mile without refueling";
 >
 >5.Ask the user want to calculate automobile capacity for others
 >-
