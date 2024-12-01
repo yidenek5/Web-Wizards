@@ -7,13 +7,14 @@ int main() {
     // take two numbers from user as x , y, and then to get the power of themselves
     float x,y;
     line9:
-    cout<<"Enter the first number(base number): ";
+    cout<<"Enter the base number : ";
     cin>>x;
     // to check the user base number input is valid or not
     if (cin.fail()) {
         cin.clear();
         cin.ignore();
         cout<<"You have entered invalid base number, please enter only integers."<<endl;
+
         goto line9;
     }
     line19:
@@ -30,19 +31,22 @@ int main() {
     float temp2 = y;
     // check the value of y if it's negative or positive
     if (y < 0 ) {
-        y = -1*y;
+        y = -1*temp2;
         for (int i=1; i<y; i++) {
             x *= temp1;
         }
         x = 1/x ;
 
     }else {
+        if (y == 0 ) {
+            x = 1;
+        }
 
         for(int i=1; i<y; i++){
             x *= temp1;
         }
 
-        cout<<"The value of the expression "<<temp1<<" the power of "<<temp2<<"is :"<<x<<endl;
+        cout<<"The value of "<<temp1<<" the power of "<<temp2<<"is :"<<x<<endl;
 
 
         // we can do easily by using built in function by including <cmath>
