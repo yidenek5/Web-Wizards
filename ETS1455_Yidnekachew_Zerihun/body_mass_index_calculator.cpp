@@ -15,7 +15,7 @@ int main() {
     cout<<"the BMI of the person is: "<<bodymassindex<<endl;
     if (bodymassindex>25) {
         cout<<"the person is overweight"<<endl;
-    }else if(bodymassindex>=16 && bodymassindex<=25){
+    }else if(bodymassindex>=18 && bodymassindex<=25){
         cout<<"the person is normalweight"<<endl;
     }else {
         cout<<"the person is underweight"<<endl;
