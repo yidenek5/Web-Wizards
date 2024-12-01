@@ -27,18 +27,20 @@
 - if it is not valid , give a chance to try and back to step 2
 - else go to the line of code
 
-5.declare and initialise variable temp1 , temp2 to both base , exponent
+5.declare and initialise variable temp1 , temp2 , i to store both base , exponent
 
 6.check if the exponent less than zero or not
 
 6.1.if it is so, multiply exponent by -1 
-- then multiply base  by temp1 until exponent less than  1
+- then multiply base  by temp1 until exponent less than  i
 - and then store the value inside base again
+- increase the value of i by 1
 - finally,after we finished the above task, store the reciprocal of base into base
 
 6.2 if it is not,
 - multiply base by temp1 until exponent less than 1
 - and then store it inside base again
+- increase the value of i by 1
 
 7.process the result and print it with out prompt message
 
