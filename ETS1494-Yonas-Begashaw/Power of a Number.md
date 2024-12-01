@@ -5,7 +5,7 @@
 ### Pseudocode  
 1. Start.
 2. Input x and y.
-3. Calculate resut as result = x the power of y.
+3. Calculate resut: result = x^y.
 4. Display result.
 5. End.
 
