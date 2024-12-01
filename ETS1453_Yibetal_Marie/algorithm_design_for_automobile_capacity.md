@@ -82,11 +82,13 @@ without refueling.**
 ------>**cout<<"Invalid input for gallon of fuel,you have "<<attempts<<" chance please  enter positive number";**
 
 ------>**gotoline64;**
+
 1.1 If attempts < 0 ,
 
 ------>**cout<<"you have finished your attempts";**
 
 ------>**then terminate the program**
+
 **2 If miles_per_gallon < 0 or other invalid input**
 
 ------->**attempts--;**
