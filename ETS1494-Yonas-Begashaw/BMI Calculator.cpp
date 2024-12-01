@@ -20,16 +20,17 @@ char response;
     }else if (BMI >= 25) {
         cout << "You are overweight.";   
     } 
-
-cout <<"If you want to calculate again type Y if not type N" << endl;
-cin >> response;
-if (response == 'Y') {
-    goto label;
-} else if (response == 'N') {
-    cout <<"Exiting program";
-} else {
-    cout <<"Invalid input, exiting program."<< endl;
-}
+label2:
+    cout <<"If you want to calculate again type Y if not type N" << endl;
+    cin >> response;
+    if (response == 'Y') {
+        goto label;
+    } else if (response == 'N') {
+        cout <<"Exiting program";
+    } else {
+        cout <<"Invalid input, try again."<< endl;
+        goto label2;
+    } 
 
 return 0;
 } 
