@@ -46,7 +46,7 @@ else if(base==0 && exponent<0){
    
     cout <<base <<" The power of "<< exponent<<" is "<<"\nThis is undifined\n"<<endl;
 }
-else if(base<0 && (exponent>0 &&  exponent<1)){
+else if(base<0 && (exponent>-1 &&  exponent<1)){
   
     cout <<base <<" The power of "<< exponent<<" is "<<"\nThis is complex number\n"<<endl;
 }
