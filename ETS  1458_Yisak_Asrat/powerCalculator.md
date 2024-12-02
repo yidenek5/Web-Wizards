@@ -13,7 +13,7 @@
 - **Step 9:** Check for special cases:
   - If `base == 0` and `exponent == 0`, display "This result is an indeterminate form."
   - If `base == 0` and `exponent < 0`, display "This is undefined."
-  - If `base < 0` and `exponent` is between 0 and 1, display "This is a complex number."
+  - If `base < 0` and `exponent` is between -1 and 1, display "This is a complex number."
 - **Step 10:** If none of the special cases are true, calculate the power using `power = pow(base, exponent)`
 - **Step 11:** Display the result: "The power of [base] raised to [exponent] is [power]"
 - **Step 12:** End
@@ -33,7 +33,7 @@ flowchart TD
 
     CheckSpecialCases -->|Base = 0 and Exponent = 0| Indeterminate["Display: Result is indeterminate"]
     CheckSpecialCases -->|Base = 0 and Exponent < 0| Undefined["Display: Result is undefined"]
-    CheckSpecialCases -->|Base < 0 and 0 < Exponent < 1| ComplexNumber["Display: Result is a complex number"]
+    CheckSpecialCases -->|Base < 0 and -1 < Exponent < 1| ComplexNumber["Display: Result is a complex number"]
     CheckSpecialCases -->|Otherwise| CalculatePower["Calculate: power = pow(base, exponent)"]
 
     Indeterminate --> End[End]
