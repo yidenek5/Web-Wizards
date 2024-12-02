@@ -23,6 +23,7 @@
    - Show: "The result of \( x \) raised to the power \( y \) is \( result \)."
 
 6. **End**
+   # Flow Chart of PowerCalculator 
  ```mermaid
 graph TD;
     A[Start] --> B[Initialize variables: x, y, result]
