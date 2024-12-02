@@ -27,115 +27,28 @@ Step 8: Determine the BMI category:
 Step 9: End the program.
 ```
 Flowchart
-```
-+----------------------------+
-|           Start             |
-+----------------------------+
-            |
-            v
-+----------------------------+
-|  Input Height (in meters)  |
-+----------------------------+
-            |
-            v
-+----------------------------+
-|   Validate Height Input    |
-|   (Is input a number?)     |
-+----------------------------+
-            |
-    +-------+-------+
-    |               |
-   No               Yes
-    |               |
-    v               v
-+--------------------+   +-------------------------+
-|  Print Error: "Please|   |  Height > 0?            |
-|  enter only a number"|   +-------------------------+
-|  (Re-enter Height)   |           |
-+--------------------+            v
-            |           +------------------------+
-            +---------> | Print Error: "Please   |
-                        | enter height > 0"      |
-                        | (Re-enter Height)      |
-                        +------------------------+
-                                |
-                                v
-                        +----------------------------+
-                        |   Input Weight (in kg)     |
-                        +----------------------------+
-                                |
-                                v
-                        +----------------------------+
-                        |   Validate Weight Input    |
-                        |   (Is input a number?)     |
-                        +----------------------------+
-                                |
-                        +-------+-------+
-                        |               |
-                       No               Yes
-                        |               |
-                        v               v
-                +--------------------+   +-------------------------+
-                |  Print Error: "Please|   |  Weight > 0?            |
-                |  enter only a number"|   +-------------------------+
-                |  (Re-enter Weight)   |           |
-                +--------------------+            v
-                                |           +------------------------+
-                                +---------> | Print Error: "Please   |
-                                            | enter weight > 0"      |
-                                            | (Re-enter Weight)      |
-                                            +------------------------+
-                                                        |
-                                                        v
-                                            +----------------------------+
-                                            |   Calculate BMI = Weight /  |
-                                            |   (Height^2)               |
-                                            +----------------------------+
-                                                        |
-                                                        v
-                                            +----------------------------+
-                                            |   BMI > 29.9?              |
-                                            +----------------------------+
-                                                        |
-                                            +-------+-------+
-                                            |               |
-                                           Yes             No
-                                            |               |
-                                            v               v
-                                   +------------------+    +-------------------------+
-                                   |  Print "Obesity" |    |   BMI >= 25 && BMI <= 29.9?|
-                                   +------------------+    +-------------------------+
-                                                        |
-                                                        v
-                                          +------------------------------+
-                                          |  Print "Overweight"          |
-                                          +------------------------------+
-                                                        |
-                                                        v
-                                          +------------------------------+
-                                          |  BMI >= 18.5 && BMI < 25?    |
-                                          +------------------------------+
-                                                        |
-                                                        v
-                                           +--------------------------+
-                                           |  Print "Normal Weight"   |
-                                           +--------------------------+
-                                                        |
-                                                        v
-                                           +--------------------------+
-                                           |  BMI < 18.5?             |
-                                           +--------------------------+
-                                                        |
-                                                       Yes
-                                                        |
-                                                        v
-                                           +--------------------------+
-                                           |  Print "Underweight"     |
-                                           +--------------------------+
-                                                        |
-                                                        v
-                                           +-------------------------+
-                                           |          End             |
-                                           +-------------------------+
+```mermaid
+flowchart TD
+    Start[Start] --> InputHeight["Input: Enter height (Meters)"]
+    InputHeight --> CheckHeightValid{Is height valid?}
+    CheckHeightValid -->|No| InvalidHeight["Prompt: Enter a valid number"] --> InputHeight
+    CheckHeightValid -->|Yes| CheckHeightPositive{Is height > 0?}
+    CheckHeightPositive -->|No| NegativeHeight["Prompt: Enter a number greater than 0"] --> InputHeight
+    CheckHeightPositive -->|Yes| InputWeight["Input: Enter weight (Kilograms)"]
 
- ```
+    InputWeight --> CheckWeightValid{Is weight valid?}
+    CheckWeightValid -->|No| InvalidWeight["Prompt: Enter a valid number"] --> InputWeight
+    CheckWeightValid -->|Yes| CheckWeightPositive{Is weight > 0?}
+    CheckWeightPositive -->|No| NegativeWeight["Prompt: Enter a number greater than 0"] --> InputWeight
+    CheckWeightPositive -->|Yes| CalculateBMI["Calculate: BMI = weight / (height^2)"]
+
+    CalculateBMI --> CheckBMICategory{Evaluate BMI Category}
+    CheckBMICategory -->|BMI > 29.9| Obesity["Display: Person is at Obesity"]
+    CheckBMICategory -->|25 ≤ BMI ≤ 29.9| Overweight["Display: Person is Overweight"]
+    CheckBMICategory -->|18.5 ≤ BMI < 25| NormalWeight["Display: Person is at Normal Weight"]
+    CheckBMICategory -->|BMI < 18.5| Underweight["Display: Person is Underweight"]
+
+    Obesity --> End[End]
+    Overweight --> End
+    NormalWeight --> End
+    Underweight --> End
