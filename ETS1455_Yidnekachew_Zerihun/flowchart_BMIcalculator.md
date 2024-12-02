@@ -1,2 +1,18 @@
-[Flowchart_BMI_calculator.docx](https://github.com/user-attachments/files/17966193/Flowchart_BMI_calculator.docx)
-
+```mermaid
+graph TD
+    A[Start] --> B[Input Weight in kilograms]
+    B --> C[Input Height in meters]
+    C --> D[Calculate BMI = weight / (height * height)]
+    D --> E{Is BMI < 18.5?}
+    E --> F[Category: Underweight]
+    E --> G{Is BMI <= 24.9?}
+    G --> H[Category: Normal weight]
+    G --> I[Category: Overweight]
+    F --> J[Output BMI and Category]
+    H --> J[Output BMI and Category]
+    I --> J[Output BMI and Category]
+    J --> K[Another Person?]
+    K --> L{0}
+    K --> M{other char}
+    L --> B
+    M --> N[End]
