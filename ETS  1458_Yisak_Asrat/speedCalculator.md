@@ -1,10 +1,4 @@
-**Problem: Calculating the Time to Send a File**
-
-**Inputs to the algorithm:**
-- File size in bytes
-
-**Expected output:**
-- Time required to send the file in seconds
+ Calculating the Time to Send a File**
 
 **Algorithm:**
 
@@ -21,54 +15,15 @@
 - **Step 9:** End
   
   **Flowchart**
-  ```
-  +-------------------------+
-  |          Start           |
-  +-------------------------+
-            |
-            v
-  +-----------------------------+
-  | Declare fileSize and time   |
-  | variables                   |
-  +-----------------------------+
-            |
-            v
-  +--------------------------------------------+
-  | Display prompt: "Enter file size in bytes" |
-  +--------------------------------------------+
-            |
-            v
-  +-----------------------------+
-  | Read file size input        |
-  +-----------------------------+
-            |
-            v
-  +-------------------------------------------+
-  | Is input a valid number? (Check if valid) |
-  +-----------------------------+-------------+
-            | No                         | Yes
-            v                             v
-  +----------------------------+     +-------------------------------+
-  | Display error: "Please enter|     | Is fileSize >= 0?             |
-  | only a number"              |     +-------------------------------+
-  +----------------------------+             |
-            |                               v
-            v                  +-------------------------------+
-  +----------------------------+| Display error: "Enter a number |
-  | Go back to input prompt    | | greater than or equal to 0"   |
-  +----------------------------+ +-------------------------------+
-            |                               |
-            v                               v
-     +---------------------------+   +-----------------------------+
-     | Calculate time = fileSize  |   | Display result: time to send|
-     | / 960                      |   | the file in seconds         |
-     +---------------------------+   +-----------------------------+
-            |
-            v
-      +---------------------+
-      |        End           |
-      +---------------------+
 
+ ```mermaid
+flowchart TD
+    Start[Start] --> InputFileSize["Input: Enter file size (Bytes)"]
+    InputFileSize --> CheckFileSizeValid{Is file size valid?}
+    CheckFileSizeValid -->|No| InvalidFileSize["Prompt: Enter a valid number"] --> InputFileSize
+    CheckFileSizeValid -->|Yes| CheckFileSizePositive{Is file size >= 0?}
+    CheckFileSizePositive -->|No| NegativeFileSize["Prompt: Enter a number ≥ 0"] --> InputFileSize
+    CheckFileSizePositive -->|Yes| CalculateTime["Calculate: Time = fileSize / 960"]
 
-
-
+    CalculateTime --> DisplayResult["Display: Time required to send file (seconds)"]
+    DisplayResult --> End[End]
