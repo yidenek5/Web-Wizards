@@ -33,100 +33,31 @@
   - "The net salary is [netSalary]"
 - **Step 16:** End
 
-  **Flowchart
+  Flowchart
   ```
-    +---------------------------+
-  |            Start           |
-  +---------------------------+
-             |
-             v
-  +-------------------------------+
-  | Declare variables: workingHour, |
-  | bonusRate, baseSalary, bonusPayment, |
-  | grossSalary, tax, pension, netSalary, name |
-  +-------------------------------+
-             |
-             v
-  +-------------------------------+
-  | Display prompt: "Enter your   |
-  | name"                         |
-  +-------------------------------+
-             |
-             v
-  +-------------------------------+
-  | Read input for name           |
-  +-------------------------------+
-             |
-             v
-  +-----------------------------------------------+
-  | Display prompt: "Enter weekly working hours" |
-  +-----------------------------------------------+
-             |
-             v
-  +-------------------------------+
-  | Read input for workingHour    |
-  +-------------------------------+
-             |
-             v
-  +----------------------------------------------+
-  | Is input for workingHour valid (numeric)?   |
-  +-------------------------------+--------------+
-             | No                             | Yes
-             v                                  v
-  +-------------------------------+    +-------------------------------+
-  | Display error: "Enter a valid  |    | Is workingHour >= 0?          |
-  | number"                        |    +-------------------------------+
-  +-------------------------------+             |
-             |                               v
-             v                       +-----------------------------+
-   +----------------------------+    | Display error: "Enter number |
-   | Go back to workingHour input|    | greater than or equal to 0"  |
-   +----------------------------+    +-----------------------------+
-             |                               |
-             v                               v
-  +-------------------------------+     +-----------------------------+
-  | Display prompt: "Enter bonus   |     | Read input for bonusRate    |
-  | rate per hour"                 |     +-----------------------------+
-  +-------------------------------+             |
-             |                               v
-             v                       +-----------------------------+
-  +-------------------------------+    | Is input for bonusRate valid |
-  | Read input for bonusRate       |    | (numeric and >= 0)?          |
-  +-------------------------------+    +-----------------------------+
-             |                               |
-             v                               v
-  +----------------------------------------------+
-  | Is input for bonusRate valid?               |
-  +-------------------------------+--------------+
-             | No                             | Yes
-             v                                  v
-  +-------------------------------+     +-----------------------------+
-  | Display error: "Enter a valid  |     | Display prompt: "Enter base |
-  | number"                        |     | salary"                     |
-  +-------------------------------+     +-----------------------------+
-             |                               |
-             v                               v
-   +-------------------------------+     +-----------------------------+
-   | Go back to bonusRate input     |     | Read input for baseSalary   |
-   +-------------------------------+     +-----------------------------+
-             |                               |
-             v                               v
-  +-----------------------------------------------+
-  | Is input for baseSalary valid (numeric)?     |
-  +-------------------------------+--------------+
-             | No                             | Yes
-             v                                  v
-  +-------------------------------+    +-------------------------------+
-  | Display error: "Enter a valid  |    | Calculate bonusPayment, grossSalary, tax, |
-  | number"                        |    | pension, and netSalary          |
-  +-------------------------------+    +-------------------------------+
-             |                               |
-             v                               v
-   +-------------------------------+     +-----------------------------+
-   | Go back to baseSalary input    |     | Display result: tax, bonus,  |
-   +-------------------------------+     | pension, gross, and net salary|
-             |                               |
-             v                               v
-     +----------------------------+   +-----------------------------+
-     |          End                |   |         End                 |
-     +----------------------------+   +-----------------------------+
+```mermaid
+flowchart TD
+    Start[Start] --> InputName["Input: Enter your name"]
+    InputName --> InputHours["Input: Enter weekly working hours"]
+    
+    InputHours --> CheckHoursValid{Is hours valid?}
+    CheckHoursValid -->|No| InvalidHours["Prompt: Enter a valid number"] --> InputHours
+    CheckHoursValid -->|Yes| CheckHoursPositive{Are hours >= 0?}
+    CheckHoursPositive -->|No| NegativeHours["Prompt: Enter a non-negative number"] --> InputHours
+    CheckHoursPositive -->|Yes| InputRate["Input: Enter bonus rate per hour"]
+
+    InputRate --> CheckRateValid{Is rate valid?}
+    CheckRateValid -->|No| InvalidRate["Prompt: Enter a valid number"] --> InputRate
+    CheckRateValid -->|Yes| CheckRatePositive{Is rate >= 0?}
+    CheckRatePositive -->|No| NegativeRate["Prompt: Enter a non-negative number"] --> InputRate
+    CheckRatePositive -->|Yes| InputSalary["Input: Enter base salary"]
+
+    InputSalary --> CheckSalaryValid{Is salary valid?}
+    CheckSalaryValid -->|No| InvalidSalary["Prompt: Enter a valid number"] --> InputSalary
+    CheckSalaryValid -->|Yes| CheckSalaryPositive{Is salary >= 0?}
+    CheckSalaryPositive -->|No| NegativeSalary["Prompt: Enter a non-negative number"] --> InputSalary
+    CheckSalaryPositive -->|Yes| Calculation["Calculate bonus payment, gross salary, tax, pension, net salary"]
+
+    Calculation --> DisplayResults["Display results: tax, bonus payment, pension, gross salary, net salary"]
+    DisplayResults --> End[End]
+
