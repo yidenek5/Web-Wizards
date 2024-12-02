@@ -1,67 +1,89 @@
 # Pseudocode for Salary Calculation
 
-1. **Start**
+**1. Start**
 
-2. **Prompt for weekly working hours:**
-   - Input: `weeklyHours`
-   - Validate input: Ensure `weeklyHours > 0`
-   - If invalid, display error message and prompt again.
+- Declare variables: `name`, `weeklyHours`, `bonusRate`, `baseSalary`, `bonusPayment`, `grossSalary`, `pensionDeduction`, `taxDeduction`, `netSalary`.
 
-3. **Prompt for bonus rate per hour (0 - 1):**
-   - Input: `bonusRate`
-   - Validate input: Ensure `0 < bonusRate < 1`
-   - If invalid, display error message and prompt again.
+**2. Loop 1 (for Name Input)**
 
-4. **Prompt for base salary:**
-   - Input: `baseSalary`
-   - Validate input: Ensure `baseSalary > 0`
-   - If invalid, display error message and prompt again.
+- Display prompt: "Enter the name of the person."
+- Read input `name`.
+- If input is invalid:
+  - Clear input error state.
+  - Discard invalid input up to 1000 characters or newline.
+  - Display error message: "Please enter a valid name of the person."
+  - Go back to **2**.
 
-5. **Calculate Bonus Payment:**
-   - `bonusPayment = weeklyHours * bonusRate`
+**3. Loop 2 (for Weekly Hours Input)**
 
-6. **Calculate Gross Salary:**
-   - `grossSalary = baseSalary + bonusPayment`
+- Display prompt: "Enter weekly working hours."
+- Read input `weeklyHours`.
+- If input is invalid or `weeklyHours <= 0`:
+  - Clear input error state.
+  - Discard invalid input up to 1000 characters or newline.
+  - Display error message: "Please enter a valid weekly working hours."
+  - Go back to **3**.
 
-7. **Calculate Deductions:**
-   - `pensionDeduction = 0.05 * grossSalary`
-   - `taxDeduction = 0.15 * grossSalary`
+**4. Loop 3 (for Bonus Rate Input)**
 
-8. **Calculate Net Salary:**
-   - `netSalary = grossSalary - (pensionDeduction + taxDeduction)`
+- Display prompt: "Enter bonus rate per hour (0 - 1)."
+- Read input `bonusRate`.
+- If input is invalid or `bonusRate <= 0` or `bonusRate >= 1`:
+  - Clear input error state.
+  - Discard invalid input up to 1000 characters or newline.
+  - Display error message: "Please enter a valid bonus rate per hour between 0 and 1."
+  - Go back to **4**.
 
-9. **Display Results:**
-   - Show `Bonus Payment`
-   - Show `Gross Salary`
-   - Show `Net Salary`
+**5. Loop 4 (for Base Salary Input)**
 
-10. **End**
+- Display prompt: "Enter base salary."
+- Read input `baseSalary`.
+- If input is invalid or `baseSalary <= 0`:
+  - Clear input error state.
+  - Discard invalid input up to 1000 characters or newline.
+  - Display error message: "Please enter a valid base salary."
+  - Go back to **5**.
+
+**6. Calculations**
+
+- Calculate `bonusPayment = weeklyHours * bonusRate`.
+- Calculate `grossSalary = baseSalary + bonusPayment`.
+- Calculate `pensionDeduction = 0.05 * grossSalary`.
+- Calculate `taxDeduction = 0.15 * grossSalary`.
+- Calculate `netSalary = grossSalary - (pensionDeduction + taxDeduction)`.
+
+**7. Output**
+
+- Display `bonusPayment` with name: "Bonus Payment of [name] is: $[bonusPayment]".
+- Display `grossSalary` with name: "Gross Salary of [name] is: $[grossSalary]".
+- Display `netSalary` with name: "Net Salary of [name] is: $[netSalary]".
+
+**8. End**
+
+
+
+## Flowchart of SalaryCalculator
 ```mermaid
 graph TD;
     A[Start] --> B[Initialize variables]
-    B --> C{Weekly working hours}
-    C -->|Valid| D[Proceed]
-    C -->|Invalid| E[Clear input]
-    E --> F[Ignore input]
-    F --> G[Print valid hours required]
-    G --> C
-    D --> H{Bonus rate per hour 0-1}
-    H -->|Valid| I[Proceed]
-    H -->|Invalid| J[Clear input]
-    J --> K[Ignore input]
-    K --> L[Print valid rate required]
-    L --> H
-    I --> M[Initialize counter2]
-    M --> N{Base salary}
-    N -->|Valid| O[Proceed]
-    N -->|Invalid| P[Clear input]
-    P --> Q[Ignore input]
-    Q --> R[Print valid salary required]
-    R --> N
-    O --> S[Calculate Bonus Payment]
-    S --> T[Calculate Gross Salary]
-    T --> U[Calculate Deductions]
-    U --> V[Calculate Net Salary]
-    V --> W[Display Results]
-    W --> X[End]
-
+    B --> C{Prompt for name}
+    C -->|Valid| D[Prompt for weekly hours]
+    C -->|Invalid| E[Clear input error and print message]
+    E --> C
+    D --> F{Prompt for weekly hours}
+    F -->|Valid| G[Prompt for bonus rate]
+    F -->|Invalid| H[Clear input error and print message]
+    H --> F
+    G --> I{Prompt for bonus rate}
+    I -->|Valid| J[Prompt for base salary]
+    I -->|Invalid| K[Clear input error and print message]
+    K --> I
+    J --> L{Prompt for base salary}
+    L -->|Valid| M[Calculate bonus payment]
+    L -->|Invalid| N[Clear input error and print message]
+    N --> L
+    M --> O[Calculate gross salary]
+    O --> P[Calculate deductions]
+    P --> Q[Calculate net salary]
+    Q --> R[Display results]
+    R --> S[End]
