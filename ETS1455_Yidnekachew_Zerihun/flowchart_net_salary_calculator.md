@@ -8,7 +8,7 @@ graph TD
     F --> G[Calculate Gross Salary = Base Salary + Bonus Payment]
     G --> H[Calculate Pension = 5% of Gross Salary]
     H --> I[Calculate Tax = 15% of Gross Salary]
-    I --> J[Calculate Net Salary = Gross Salary - (Pension + Tax)]
+    I --> J[Calculate Net Salary = Gross Salary - Pension - Tax]
     J --> K[Output Employee Name]
     K --> L[Output Gross Salary]
     L --> M[Output Net Salary]
