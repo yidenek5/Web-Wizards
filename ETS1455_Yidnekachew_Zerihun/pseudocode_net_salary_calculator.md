@@ -16,7 +16,7 @@
 - Read `base_salary` from input
 
 ## Calculate bonus payment
-- Set `bonus_payment` to `weekly_working_hours` multiplied by `bonus_rate_per_hour`
+- Set `bonus_payment` to `weekly_working_hours` multiplied by `bonus_rate_per_hour` multiplied by `base_salary`
 
 ## Calculate gross salary
 - Set `gross_salary` to `base_salary` plus `bonus_payment`
