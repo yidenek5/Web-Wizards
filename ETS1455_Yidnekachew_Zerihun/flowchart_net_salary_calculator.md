@@ -1,6 +1,6 @@
 ```mermaid
 graph TD
-    A([Start]) --> B[Input Employee Name]
+    A([Start]) --> B[/Input Employee Name/]
     B --> C[/Input Weekly Working Hours/]
     C --> D[/Input Bonus Rate Per Hour/]
     D --> E[/Input Base Salary/]
@@ -15,7 +15,6 @@ graph TD
     M --> N[/Output Bonus Payment/]
     N --> O[/Output Pension and Tax Deductions/]
     O --> P{Another Employee?}
-    P --> |Yes|Q
-    P --> |No|R
-    Q --> B
-    R --> S([End])
+    P --> |Yes|B
+    P --> |No|S([End])
+  
