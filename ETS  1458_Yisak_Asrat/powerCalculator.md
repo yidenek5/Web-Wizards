@@ -19,70 +19,25 @@
 - **Step 12:** End
 
   **Flowchart**
-  ```
-    +---------------------------+
-  |            Start           |
-  +---------------------------+
-             |
-             v
-  +-------------------------------+
-  | Declare base, exponent, power |
-  +-------------------------------+
-             |
-             v
-  +-------------------------------------------+
-  | Display prompt: "Enter the base number"  |
-  +-------------------------------------------+
-             |
-             v
-  +-------------------------------+
-  | Read input for base           |
-  +-------------------------------+
-             |
-             v
-  +----------------------------------------------+
-  | Is input valid (numeric)?                   |
-  +-------------------------------+--------------+
-             | No                             | Yes
-             v                                  v
-  +----------------------------------+    +----------------------------+
-  | Display error: "Enter a valid   |    | Display prompt: "Enter     |
-  | number"                          |    | exponent number"           |
-  +----------------------------------+    +----------------------------+
-             |                                  |
-             v                                  v
-   +-------------------------------+     +-----------------------------+
-   | Go back to base input          |     | Read input for exponent     |
-   +-------------------------------+     +-----------------------------+
-             |                                  |
-             v                                  v
-  +-----------------------------------------------+
-  | Is input valid (numeric)?                    |
-  +-------------------------------+--------------+
-             | No                             | Yes
-             v                                  v
-  +----------------------------------+    +----------------------------+
-  | Display error: "Enter a valid   |    | Check for special cases:    |
-  | number"                          |    | 1. base == 0 and exponent == 0 |
-  +----------------------------------+    | 2. base == 0 and exponent < 0  |
-             |                            | 3. base < 0 and 0 < exponent < 1 |
-             v                                  |
-  +-------------------------------+             v
-  | Go back to exponent input      |    +---------------------------+
-  +-------------------------------+    | Display special error      |
-             |                            | message for indeterminate,  |
-             v                            | undefined, or complex case.|
-  +-----------------------------------------------+
-  | Calculate power = pow(base, exponent)         |
-  +-----------------------------------------------+
-             |
-             v
-  +-----------------------------------------------+
-  | Display result: "The power of [base] to [exponent] |
-  | is [power]"                                   |
-  +-----------------------------------------------+
-             |
-             v
-      +---------------------+
-      |         End          |
-      +---------------------+
+
+```mermaid
+flowchart TD
+    Start[Start] --> InputBase["Input: Enter base number"]
+    InputBase --> CheckBaseValid{Is base valid?}
+    CheckBaseValid -->|No| InvalidBase["Prompt: Enter a valid number"] --> InputBase
+    CheckBaseValid -->|Yes| InputExponent["Input: Enter exponent number"]
+    
+    InputExponent --> CheckExponentValid{Is exponent valid?}
+    CheckExponentValid -->|No| InvalidExponent["Prompt: Enter a valid number"] --> InputExponent
+    CheckExponentValid -->|Yes| CheckSpecialCases{Check for special cases}
+
+    CheckSpecialCases -->|Base = 0 and Exponent = 0| Indeterminate["Display: Result is indeterminate"]
+    CheckSpecialCases -->|Base = 0 and Exponent < 0| Undefined["Display: Result is undefined"]
+    CheckSpecialCases -->|Base < 0 and 0 < Exponent < 1| ComplexNumber["Display: Result is a complex number"]
+    CheckSpecialCases -->|Otherwise| CalculatePower["Calculate: power = pow(base, exponent)"]
+
+    Indeterminate --> End[End]
+    Undefined --> End
+    ComplexNumber --> End
+    CalculatePower --> DisplayResult["Display: Power result"] --> End
+
