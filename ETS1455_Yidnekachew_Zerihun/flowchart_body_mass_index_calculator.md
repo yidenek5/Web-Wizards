@@ -2,7 +2,7 @@
 graph TD
     A[Start] --> B[Input Weight in kilograms]
     B --> C[Input Height in meters]
-    C --> D[Calculate BMI = weight / (height * height)]
+    C --> D[Calculate BMI = weight / height / height]
     D --> E{Is BMI < 18.5?}
     E --> F[Category: Underweight]
     E --> G{Is BMI <= 24.9?}
