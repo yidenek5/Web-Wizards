@@ -28,67 +28,22 @@
 
   
 **Flowchart**
-  ```
-    +----------------------------+
-  |            Start            |
-  +----------------------------+
-             |
-             v
-  +-------------------------------------------+
-  | Declare variables: capacity, mileage,    |
-  | change, distance                        |
-  +-------------------------------------------+
-             |
-             v
-  +-------------------------------------------------+
-  | Display prompt: "Enter capacity of fuel tank"  |
-  +-------------------------------------------------+
-             |
-             v
-  +-------------------------------+
-  | Read input for capacity       |
-  +-------------------------------+
-             |
-             v
-  +----------------------------------------------+
-  | Is the input valid (numeric and > 0)?       |
-  +-------------------------------+--------------+
-             | No                             | Yes
-             v                                  v
-  +----------------------------------+    +----------------------------+
-  | Display error: "Enter a valid   |    | Display prompt: "Enter     |
-  | number greater than 0"          |    | mileage in meters per liter"|
-  +----------------------------------+    +----------------------------+
-             |                                  |
-             v                                  v
-   +-------------------------------+     +-----------------------------+
-   | Go back to capacity input      |     | Read input for mileage      |
-   +-------------------------------+     +-----------------------------+
-             |                                  |
-             v                                  v
-  +-----------------------------------------------+
-  | Is the input valid (numeric and > 0)?        |
-  +-------------------------------+--------------+
-             | No                             | Yes
-             v                                  v
-  +----------------------------------+    +----------------------------+
-  | Display error: "Enter a valid   |    | Calculate distance =        |
-  | number greater than 0"          |    | mileage * capacity          |
-  +----------------------------------+    +----------------------------+
-             |                                  |
-             v                                  v
-   +-------------------------------+     +----------------------------+
-   | Go back to mileage input       |     | Calculate change = distance |
-   +-------------------------------+     | / 1609.34 (meters to miles) |
-             |                                  |
-             v                                  v
-  +-----------------------------------------------+
-  | Display result: "The number of miles that    |
-  | the automobile can be driven without refueling|
-  | is [change] miles"                           |
-  +-----------------------------------------------+
-             |
-             v
-      +---------------------+
-      |         End          |
-      +---------------------+
+
+  ```mermaid
+flowchart TD
+    Start[Start] --> InputCapacity["Input: Enter fuel tank capacity (Liters)"]
+    InputCapacity --> CheckCapacityValid{Is capacity valid?}
+    CheckCapacityValid -->|No| InvalidCapacity["Prompt: Enter a valid number"] --> InputCapacity
+    CheckCapacityValid -->|Yes| CheckCapacityPositive{Is capacity > 0?}
+    CheckCapacityPositive -->|No| NegativeCapacity["Prompt: Enter a number greater than 0"] --> InputCapacity
+    CheckCapacityPositive -->|Yes| InputMileage["Input: Enter mileage (Meters per Liter)"]
+    
+    InputMileage --> CheckMileageValid{Is mileage valid?}
+    CheckMileageValid -->|No| InvalidMileage["Prompt: Enter a valid number"] --> InputMileage
+    CheckMileageValid -->|Yes| CheckMileagePositive{Is mileage > 0?}
+    CheckMileagePositive -->|No| NegativeMileage["Prompt: Enter a number greater than 0"] --> InputMileage
+    CheckMileagePositive -->|Yes| Calculation["Calculate: distance = mileage * capacity"]
+    
+    Calculation --> Conversion["Convert distance to miles: distance / 1609.34"]
+    Conversion --> DisplayResult["Display result: miles that can be driven without refueling"]
+    DisplayResult --> End[End]
