@@ -13,5 +13,5 @@ graph TD
     I --> J[/Output BMI and Category/]
     J --> K{Another Person?}
     K --> |Other character| N([End])
-    k --> |0| B
+    K --> |0| B
     
