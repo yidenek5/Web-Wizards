@@ -27,6 +27,8 @@
    - Show `days`, `hours`, `minutes`, and `seconds` with appropriate labels.
 
 7. **End**
+
+    # Flow Chart of FileTransmission TimeCalculator 
 ```mermaid
 graph TD;
     A[Start] --> B[Initialize variables]
