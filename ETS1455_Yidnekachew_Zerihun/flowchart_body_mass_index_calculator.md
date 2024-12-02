@@ -11,8 +11,8 @@ graph TD
     F --> J[/Output BMI and Category/]
     H --> J[/Output BMI and Category/]
     I --> J[/Output BMI and Category/]
-    J --> K[Another Person?]
+    J --> K{Another Person?}
     K --> L{0}
-    K --> M{other char}
+    K --> M[other char]
     L --> B
     M --> N([End])
