@@ -5,6 +5,6 @@ graph TD
     C --> D[Calculate Total Miles = Tank Capacity * Miles per gallon]
     D --> E[/Output Total Miles/]
     E --> F{Another Calculation?}
-    F --> G|Yes|B
-    F --> H|No|G[End]
+    F --> |Yes|B
+    F --> |No|G[End]
     
